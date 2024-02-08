@@ -1,0 +1,20 @@
+<p>login works!</p>
+<div>
+    <h2>Login</h2>
+    <form [formGroup]="mylogform" #f="ngForm" >
+      <label for="username">Email:</label>
+      <input type="text" placeholder="Enter Email" id="email" name="email" formControlName="email" required>
+      <span style="color: red;" *ngIf="mylogform.get('email')?.invalid && mylogform.get('email')?.touched">Please Enter valid Email!!</span><br>
+ 
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" formControlName="psw" required>
+      <span style="color: red;" *ngIf="mylogform.get('psw')?.invalid && mylogform.get('psw')?.touched">Please Enter valid Password!!</span><br>
+      
+  
+      <hr>
+  
+      <button type="submit" [disabled]="!f.valid" (click)="onSubmit()">Login</button>
+    </form>
+  </div>
+  
